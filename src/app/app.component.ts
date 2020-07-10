@@ -8,12 +8,16 @@ import { Model, TodoItem } from './model';
 })
 export class AppComponent {
   model = new Model();
+  isDislay = false;
 
   getName(){
     return this.model.user;
   }
 
   getItems(){
+    if (this.isDislay){
+      return this.model.items;
+    }
     return this.model.items.filter(item=> !item.action);
   }
 
